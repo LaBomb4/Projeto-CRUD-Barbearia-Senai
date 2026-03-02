@@ -1,4 +1,4 @@
-package com.barbearia.app;
+package com.barbearia.fiodanavalha.app;
 
 import javax.sql.DataSource;
 
