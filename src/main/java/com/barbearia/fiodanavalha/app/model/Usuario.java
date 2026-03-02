@@ -13,13 +13,16 @@ import java.util.Set;
 @Entity
 public class Usuario implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String login; // O login será o ID (chave primária)
     private String nomeCompleto;
     private String senha;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
+
+    public Set<Role> getRoles() {
+        return this.roles;
+    }
 
     public Usuario() {
 
@@ -52,7 +55,7 @@ public class Usuario implements UserDetails {
     // Métodos da interface UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList();
+        return this.roles;
     }
 
     @Override
