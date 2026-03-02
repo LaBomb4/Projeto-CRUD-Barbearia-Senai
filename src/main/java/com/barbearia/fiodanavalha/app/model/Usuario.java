@@ -13,6 +13,10 @@ import java.util.Set;
 @Entity
 public class Usuario implements UserDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @Column(unique = true)
     private String login; // O login será o ID (chave primária)
     private String nomeCompleto;
     private String senha;
