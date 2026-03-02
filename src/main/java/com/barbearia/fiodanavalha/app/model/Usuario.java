@@ -1,20 +1,25 @@
 package com.barbearia.fiodanavalha.app.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import org.springframework.beans.PropertyValues;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Set;
 
 @Entity
 public class Usuario implements UserDetails{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String login; // O login será o ID (chave primária)
     private String nomeCompleto;
     private String senha;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
     public Usuario(){
 
@@ -73,5 +78,8 @@ public class Usuario implements UserDetails{
     @Override
     public boolean isEnabled(){
         return true;
+    }
+
+    public PropertyValues getRoles() {
     }
 }
