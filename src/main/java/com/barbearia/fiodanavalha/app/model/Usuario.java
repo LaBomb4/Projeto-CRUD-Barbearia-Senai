@@ -10,8 +10,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
 
-import javax.management.relation.Role;
-
 @Entity
 public class Usuario implements UserDetails {
     @Id
@@ -59,7 +57,7 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getPassword() {
-        return this.password;
+        return this.senha;
     }
 
     @Override
@@ -87,6 +85,4 @@ public class Usuario implements UserDetails {
         return true;
     }
 
-    public PropertyValues getRoles() {
-    }
 }
