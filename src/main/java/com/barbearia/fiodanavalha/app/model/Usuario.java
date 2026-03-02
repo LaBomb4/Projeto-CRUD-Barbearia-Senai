@@ -10,8 +10,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Set;
 
+import javax.management.relation.Role;
+
 @Entity
-public class Usuario implements UserDetails{
+public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String login; // O login será o ID (chave primária)
@@ -21,7 +23,7 @@ public class Usuario implements UserDetails{
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    public Usuario(){
+    public Usuario() {
 
     }
 
@@ -51,32 +53,37 @@ public class Usuario implements UserDetails{
 
     // Métodos da interface UserDetails
     @Override
-    public Collection<? extends GrantedAuthority>getAuthorities(){
+    public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.emptyList();
     }
 
     @Override
-    public String getUsername(){
+    public String getPassword() {
+        return this.password;
+    }
+
+    @Override
+    public String getUsername() {
         return this.login; // Retorna o login come "nome de usuário"
     }
 
     @Override
-    public boolean isAccountNonExpired(){
+    public boolean isAccountNonExpired() {
         return true;
     }
 
     @Override
-    public boolean isAccountNonLocked(){
+    public boolean isAccountNonLocked() {
         return true;
     }
 
     @Override
-    public boolean isCredentialsNonExpired(){
+    public boolean isCredentialsNonExpired() {
         return true;
     }
 
     @Override
-    public boolean isEnabled(){
+    public boolean isEnabled() {
         return true;
     }
 
