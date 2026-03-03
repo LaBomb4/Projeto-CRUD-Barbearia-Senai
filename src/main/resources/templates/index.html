@@ -17,11 +17,13 @@
     <hr class="border-secondary">
 
     <div class="container-cards">
-      <div class="fundo-card" th:each="procedimento : ${procedimento}">
-        <div class="card-body">
+      <div class="fundo-card" th:each="proc : ${procedimentos}">
+          <h5 th:text="${proc.nomeProcedimento}"></h5>
+        ...
+      </div>
           <h5 class="card-title" th:text="${procedimento.nomeProcedimento}"></h5>
           <h6 class="text-secondary mb-3">Valor: [[${procedimento.valor}]]</h6>
-          <p class="card-text"><strong>Descrição:</strong> [[${procedimento.descrisao}]]</p>
+          <p class="card-text"><strong>Descrição:</strong> [[${procedimento.descricao}]]</p>
         </div>
       </div>
     </div>

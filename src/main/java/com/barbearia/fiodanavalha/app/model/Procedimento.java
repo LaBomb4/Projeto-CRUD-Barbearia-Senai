@@ -16,7 +16,7 @@ public class Procedimento implements Serializable {
     private long idProcedimento;
     private String nomeProcedimento;
     private float valor;
-    private String descrisao;
+    private String descricao;
 
 
     public Procedimento() {
@@ -48,11 +48,11 @@ public class Procedimento implements Serializable {
     }
 
     public String getDescrisao() {
-        return this.descrisao;
+        return this.descricao;
     }
 
     public void setDescrisao(String descrisao) {
-        this.descrisao = descrisao;
+        this.descricao = descrisao;
     }
 
 
