@@ -1,0 +1,298 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body{
+    background-color: #202020;
+    height: 100vh;
+    
+}
+/*css do header */
+nav.menu-lateral{
+    width:95px;
+    height: 100%;
+    background-color:#202020 ;
+    padding: 40px 0 40px 1% ;
+    box-shadow: 4px 0 0 #e17218;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .5s;
+    z-index: 1000;
+}
+
+nav.menu-lateral.expandir{
+    width:250px;
+
+}
+
+.btn-expandir{
+    width: 100%;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    margin-left: 16px;
+}
+
+.btn-expandir > i{
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu:hover{
+    background: #e17218;
+}
+ul li.item-menu{
+    transition: .5s;
+}
+
+ul li.ativo{
+    background-color: #e17218;
+}
+
+ul li.item-menu a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px;
+    padding: 20px 4%;
+    display: flex;
+    
+    margin-bottom: 30px;
+    line-height: 40px;
+}
+
+ul li.item-menu a .txt-link{
+    margin-left: 70px;
+    transition: .5s;
+    opacity: 0;
+}
+
+nav.menu-lateral.expandir .txt-link{
+    margin-left: 30px;
+    opacity: 1;
+
+}
+
+ul li.item-menu a .icon{
+    width: 35px;
+}
+
+ul li.item-menu a .icon > i {
+    font-size: 30px;
+}
+
+h1{
+    color:#fff;
+}
+
+/*css do home-usuario*/
+.fundo-card{
+    background-color: rgba(255, 255, 255, 0.1);
+   
+}
+.fundo-card .card-title{
+    color: #fff;
+    font-size: 22px;
+    font-style: oblique;
+    
+}
+
+.fundo-card .card-text, 
+.fundo-card .card-subtitle{
+   color: #fff;
+   font-size: 17px;
+   text-align: justify;
+}
+
+.fundo-card .card-link {
+    font-size: 20px;
+    color: #e17218;
+    text-decoration: underline;
+    font-weight: bold;
+    }
+
+    /* tratamento de responsividade => recuo dos cards para o menu fechado  */
+.main-content {
+    margin-left: 95px; 
+    padding: 30px;
+    transition: .5s;
+    color: #fff;
+}
+
+/* Quando o menu expande no desktop, empurra o conteúdo */
+nav.menu-lateral.expandir ~ .main-content {
+    margin-left: 250px;
+}
+
+/* Css dos cards (RESPONSIVO) */
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.fundo-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex: 1 1 280px; /* tamanho de 280 mas cresce para preencher */
+    max-width: 400px; /* limite de crescimento */
+}
+
+.fundo-card .card-title {
+    color: #e17218;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.fundo-card .card-text {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* --- RESPONSIVIDADE (TABLET E MOBILE) --- */
+
+@media screen and (max-width: 768px) {
+    /* O conteúdo ocupa a tela toda no mobile pq o menu vai 'sumir' */
+    .main-content, nav.menu-lateral.expandir ~ .main-content {
+        margin-left: 0;
+        padding: 20px;
+        padding-top: 80px; /* Espaço para o botão de menu fixo */
+    }
+
+    /* Quando clica no menu ele vai ficar por cima do conteudo */
+    nav.menu-lateral {
+        left: -100px; /* Esconde o menu */
+        width: 100px;
+    }
+
+    nav.menu-lateral.expandir {
+        left: 0;
+        width: 250px;
+        box-shadow: 5px 0 20px rgba(0,0,0,0.5);
+    }
+
+    /* Botão fixo no topo para facilitar o acesso no celular */
+    .btn-expandir {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        width: auto;
+        z-index: 1100;
+    }
+}
+/*css formulário*/
+.fundo-form {
+    background-color: rgba(255, 255, 255, 0.05); 
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(225, 114, 24, 0.3); 
+    max-width: 700px; 
+    margin: 0 auto; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.form-label {
+    color: #e17218; 
+    font-weight: bold;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 12px;
+    transition: 0.3s;
+}
+
+/* Efeito ao clicar no input */
+.form-control:focus {
+    background-color: #333;
+    border-color: #e17218;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(225, 114, 24, 0.25);
+}
+/* Estilização para o campo Select no Tema Dark */
+.form-select {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 12px;
+    transition: 0.3s;
+}
+
+.form-select:focus {
+    background-color: #333;
+    border-color: #e17218;
+    color: #fff;
+    box-shadow: 0 0 0 0.25rem rgba(225, 114, 24, 0.25);
+}
+
+/* Estilo das opções dentro do select (funciona em alguns navegadores) */
+.form-select option {
+    background-color: #202020;
+    color: #fff;
+}
+
+/* css do botao de agendar */
+.btn-agendar {
+    background-color: #e17218;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-agendar:hover {
+    background-color: #ff8c32;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(225, 114, 24, 0.4);
+}
+
+/* simbolo do relogio e calendario é escuro por padrão => ta trocando pro branco */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1); /* Deixa os ícones brancos */
+    cursor: pointer;
+}
+
+/* Responsividade do Formulário */
+@media screen and (max-width: 768px) {
+    .fundo-form {
+        padding: 20px;
+        margin: 10px;
+    }
+}
+
+/* Deixa o placeholder claro */
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important; 
+    opacity: 1; 
+}
+
+/* Suporte para navegadores específicos (Chrome, Safari, Edge) */
+.form-control::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
