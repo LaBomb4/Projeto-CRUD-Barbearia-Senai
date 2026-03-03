@@ -35,7 +35,7 @@ public class AgendamentoController {
     public ModelAndView agendar() {
         ModelAndView mv = new ModelAndView("agendar");
         Iterable<Procedimento> procedimento = pr.findAll();
-        mv.addObject("procedimento", procedimento);
+        mv.addObject("procedimentos", procedimento);
         return mv;
     }
 
@@ -52,7 +52,7 @@ public class AgendamentoController {
         mv.addObject("agendamento", agendamento);
 
         Iterable<Procedimento> procedimento = pr.findAll();
-        mv.addObject("procedimento", procedimento);
+        mv.addObject("procedimentos", procedimento);
         return mv;
     }
 

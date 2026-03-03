@@ -47,13 +47,12 @@ public class Procedimento implements Serializable {
         this.valor = valor;
     }
 
-    public String getDescrisao() {
+    public String getDescricao() {
         return this.descricao;
     }
 
-    public void setDescrisao(String descrisao) {
-        this.descricao = descrisao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
-
 
 }

@@ -18,7 +18,7 @@ public class ProcedimentoController {
     public ModelAndView procedimento(){
         ModelAndView mav = new ModelAndView("index");
         Iterable<Procedimento> procedimento = crs.findAll();
-        mav.addObject("procedimento", procedimento);
+        mav.addObject("procedimentos", procedimento);
         return mav;
     }
 
