@@ -12,35 +12,36 @@ import com.barbearia.fiodanavalha.app.repository.UsuarioRepository;
 
 @Controller
 public class UsuarioController {
+    // Página Principal (Protegida)
+
+    @GetMapping("/")
+    public String homePage(Model model) {
+        model.addAttribute("usuarios", repository.findAll());
+
+        return "index";
+    }
+
     @Autowired
     private UsuarioRepository repository;
 
     @Autowired
     private PasswordEncoder passwordEncoder; // Injeta o codificador
 
-    // Página de Lofin Personalizada
+    // Página de Login Personalizada
     @GetMapping("/login")
-    public String loginPage(){
+    public String login() {
         return "login"; // Retorna o arquivo login.html
-    }
-
-    // Página Principal (Protegida)
-    @GetMapping("/home")
-    public String homePage(Model model){
-        model.addAttribute("usuarios", repository.findAll());
-
-        return "home"; // Retorna home.html
     }
 
     // Formulário de Cadastro de Novo Usuário
     @GetMapping("/cadastro")
-    public String cadastroPage(){
+    public String cadastroPage() {
         return "cadastro"; // Retorna cadastro.html
     }
 
     // Ação de Salvar Usuário
     @PostMapping("/salvarUsuario")
-    public String salvarUsuario(Usuario usuario){
+    public String salvarUsuario(Usuario usuario) {
         // Criptografa a senha antes de salvar
         String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
 
@@ -49,7 +50,4 @@ public class UsuarioController {
 
         return "redirect:/login"; // Redireciona para o login após cadastrar
     }
-
-
-
 }

@@ -20,36 +20,35 @@
 
             <div class="fundo-form mt-5">
                 <form method="POST">
+                    <input type="hidden" name="idAgendamento" th:value="${agendamento.idAgendamento}" />
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <label for="nomeCliente" class="form-label">Nome do Cliente</label>
                             <input type="text" class="form-control" id="nomeCliente" name="nomeCliente"
-                                placeholder="Nome completo" required />
+                                th:value="${agendamento.nomeCliente}" required />
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="procedimento" class="form-label">Procedimento</label>
                             <select class="form-select" id="procedimento" name="procedimento" required>
-                                <option value="" disabled selected>Selecione um serviço...</option>
-                                <option th:each="p : ${procedimento}" th:value="${p.nomeProcedimento}"
-                                    th:text="${p.nomeProcedimento}">
-                                </option>
+                                <option th:each="p : ${procedimento}" th:value="${p.nomeProcedimento}" th:text="${p.nomeProcedimento}"
+                                th:selected="${p.nomeProcedimento == agendamento.procedimento}"></option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="telefone" class="form-label">Telefone</label>
                             <input type="tel" class="form-control" id="telefone" name="telefone"
-                                placeholder="Ex: (99)99999-9999" required />
+                                th:value="${agendamento.telefone}" required />
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="data" class="form-label">Data do Corte</label>
-                            <input type="date" class="form-control" id="data" name="data" required />
+                            <input type="date" class="form-control" id="data" name="data" th:value="${agendamento.data != null ? #temporals.format(agendamento.data, 'yyyy-MM-dd') :''}" required />
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="hora" class="form-label">Hora do Corte</label>
-                            <input type="time" class="form-control" id="hora" name="hora" required />
+                            <input type="time" class="form-control" id="hora" name="hora" th:value="${agendamento.hora}" required />
                         </div>
 
                         <div class="col-md-12 mt-3">
