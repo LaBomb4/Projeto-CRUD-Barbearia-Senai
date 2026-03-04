@@ -29,10 +29,10 @@
                         </div>
 
                         <div class="col-md-6 mb-3">
-                            <label for="procedimento" class="form-label">Procedimento</label>
-                            <select class="form-select" id="procedimento" name="procedimento" required>
-                                <option th:each="p : ${procedimento}" th:value="${p.nomeProcedimento}" th:text="${p.nomeProcedimento}"
-                                th:selected="${p.nomeProcedimento == agendamento.procedimento}"></option>
+                            <label for="procedimentos" class="form-label">Procedimento</label>
+                            <select class="form-select" id="procedimentos" name="procedimentos" required>
+                                <option th:each="p : ${procedimentos}" th:value="${p.nomeProcedimento}" th:text="${p.nomeProcedimento}"
+                                th:selected="${p.nomeProcedimento == agendamento.procedimentos}"></option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
